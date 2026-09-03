@@ -253,7 +253,7 @@
     text-align: center;
   }
 
-  .about p {
+  .about p:not(.stat-number):not(.stat-label) {
     max-width: 62ch;
     margin: 0 auto 1.1rem;
     color: var(--text-dim);
@@ -277,8 +277,8 @@
     height: 60px;
     margin: 0 auto 0.9rem;
     border-radius: 50%;
-    background: var(--bg-alt);
-    border: 1px solid var(--border);
+    background: var(--yellow-soft);
+    border: 1px solid var(--yellow-dim);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -296,11 +296,10 @@
 
   .stat-label {
     margin: 0;
-    font-size: 0.78rem;
-    color: var(--text-dim);
-    font-family: var(--font-mono);
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
+    font-size: 0.9rem;
+    color: var(--text);
+    font-family: var(--font-display);
+    font-weight: 600;
   }
 
   .equip-note {
