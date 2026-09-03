@@ -503,6 +503,16 @@
 
   @media (max-width: 640px) {
     .video-grid { grid-template-columns: repeat(2, 1fr); }
+
+    .video-card-count {
+      position: static;
+      font-size: 0.6rem;
+      padding: 0.1rem 0.4rem;
+    }
+
+    .video-card-label {
+      font-size: 0.68rem;
+    }
   }
 
   @media (max-width: 420px) {
@@ -737,18 +747,28 @@
     }
 
     .skills-grid li,
-    .testimonials-grid .testimonial-card,
-    .video-grid .video-card {
+    .testimonials-grid .testimonial-card {
       opacity: 0;
       transform: translateY(14px);
       transition: opacity 0.5s ease, transform 0.5s ease;
     }
 
     .reveal.in-view .skills-grid li,
-    .reveal.in-view .testimonials-grid .testimonial-card,
-    .reveal.in-view .video-grid .video-card {
+    .reveal.in-view .testimonials-grid .testimonial-card {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    /* Portfolio cards pop in like a bubble inflating out of the dark */
+    .video-grid .video-card {
+      opacity: 0;
+      transform: scale(0.6);
+      transition: opacity 0.5s ease, transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .reveal.in-view .video-grid .video-card {
+      opacity: 1;
+      transform: scale(1);
     }
 
     .skills-grid li:nth-child(1), .testimonials-grid .testimonial-card:nth-child(1), .video-grid .video-card:nth-child(1) { transition-delay: 0.05s; }
