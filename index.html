@@ -79,6 +79,19 @@
     border-bottom: 1px solid var(--border);
   }
 
+  .scroll-progress {
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    height: 2px;
+    width: 0%;
+    background: var(--yellow);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .scroll-progress { transition: width 0.12s linear; }
+  }
+
   .topnav-inner {
     max-width: 860px;
     margin: 0 auto;
@@ -183,6 +196,7 @@
   .portrait {
     flex: none;
     width: clamp(180px, 30vw, 260px);
+    perspective: 800px;
   }
 
   .portrait-frame {
@@ -192,6 +206,9 @@
     border-radius: var(--radius-m);
     overflow: hidden;
     box-shadow: 0 18px 40px -18px rgba(33, 29, 23, 0.35);
+    transform: rotateX(0deg) rotateY(0deg);
+    transition: transform 0.3s ease;
+    will-change: transform;
   }
 
   .portrait-frame img {
@@ -245,6 +262,33 @@
 
   .about p:last-child { margin-bottom: 0; }
   .about strong { color: var(--text); font-weight: 700; }
+
+  .stats-row {
+    display: flex;
+    justify-content: center;
+    gap: clamp(2rem, 8vw, 4rem);
+    margin: 1.8rem 0;
+  }
+
+  .stat-item { text-align: center; }
+
+  .stat-number {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(2rem, 3vw + 1rem, 2.8rem);
+    color: var(--yellow);
+    margin: 0;
+    line-height: 1;
+  }
+
+  .stat-label {
+    margin: 0.4rem 0 0;
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    font-family: var(--font-mono);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
 
   .equip-note {
     margin-top: 1.6rem;
@@ -352,6 +396,69 @@
   }
 
   .approach strong { color: var(--text); font-weight: 700; }
+
+  .process-timeline {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.4rem;
+    position: relative;
+  }
+
+  .process-timeline::before {
+    content: "";
+    position: absolute;
+    top: 26px;
+    left: 12.5%;
+    right: 12.5%;
+    height: 1px;
+    background: var(--border);
+    z-index: 0;
+  }
+
+  .process-step {
+    position: relative;
+    z-index: 1;
+  }
+
+  .process-icon {
+    width: 52px;
+    height: 52px;
+    margin: 0 auto 0.9rem;
+    border-radius: 50%;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--yellow);
+  }
+
+  .process-icon svg { width: 22px; height: 22px; }
+
+  .process-title {
+    margin: 0 0 0.35rem;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.96rem;
+    color: var(--text);
+  }
+
+  .process-desc {
+    margin: 0;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: var(--text-dim);
+  }
+
+  @media (max-width: 640px) {
+    .process-timeline {
+      grid-template-columns: 1fr;
+      gap: 1.8rem;
+    }
+
+    .process-timeline::before { display: none; }
+  }
 
   /* ---------- Clients (credits strip) ---------- */
 
@@ -501,6 +608,37 @@
     border-color: var(--yellow-dim);
   }
 
+  .cursor-player {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: var(--yellow);
+    color: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 60;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+    transition: opacity 0.18s ease, transform 0.18s ease;
+    box-shadow: 0 10px 24px -10px rgba(0,0,0,0.7);
+  }
+
+  .cursor-player.active {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .cursor-player svg { width: 16px; height: 16px; margin-left: 2px; }
+
+  @media (hover: hover) and (pointer: fine) {
+    .video-grid .video-card.cursor-ready { cursor: none; }
+  }
+
   @media (max-width: 640px) {
     .video-grid { grid-template-columns: repeat(2, 1fr); }
 
@@ -598,6 +736,60 @@
 
   .contact-value { font-size: 0.94rem; color: var(--text); overflow-wrap: anywhere; }
   .contact-card.pending .contact-value { color: var(--text-faint); font-style: italic; }
+
+  .contact-value-row {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .copy-btn {
+    position: relative;
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: var(--text-faint);
+    cursor: pointer;
+    border-radius: 5px;
+    transition: color 0.15s ease, background 0.15s ease;
+  }
+
+  .copy-btn:hover, .copy-btn:focus-visible { color: var(--yellow); background: var(--yellow-soft); }
+  .copy-btn svg { width: 14px; height: 14px; }
+  .copy-btn .icon-check { display: none; }
+  .copy-btn.copied .icon-copy { display: none; }
+  .copy-btn.copied .icon-check { display: block; }
+  .copy-btn.copied { color: var(--yellow); }
+
+  .copy-btn::after {
+    content: "Скопировано";
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-size: 0.68rem;
+    font-family: var(--font-mono);
+    padding: 0.25rem 0.5rem;
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+  }
+
+  .copy-btn.copied::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
 
   @media (max-width: 640px) {
     .contacts-grid { grid-template-columns: 1fr; }
@@ -865,6 +1057,7 @@
       <li><a href="#contacts">Контакты</a></li>
     </ul>
   </div>
+  <div class="scroll-progress" id="scrollProgress"></div>
 </nav>
 
 <div class="wrap">
@@ -892,6 +1085,16 @@
     <p class="eyebrow">01 — О себе</p>
     <h2 class="section-title">Обо мне</h2>
     <p>15 лет в видеопроизводстве. За это время реализовал проекты для крупного бизнеса, федеральных брендов и частных клиентов. Берусь за проект на любом этапе — от концепции до финального ролика — и довожу до результата <strong>в срок</strong>.</p>
+    <div class="stats-row">
+      <div class="stat-item">
+        <p class="stat-number" data-count-to="15">0</p>
+        <p class="stat-label">лет опыта</p>
+      </div>
+      <div class="stat-item">
+        <p class="stat-number" data-count-to="9">0</p>
+        <p class="stat-label">направлений съёмки</p>
+      </div>
+    </div>
     <div class="equip-note">
       <strong>Оборудование:</strong> работаю на собственном профессиональном оборудовании премиум-класса — дополнительная аренда техники не требуется.
       <div class="equip-grid">
@@ -985,6 +1188,36 @@
     <p class="eyebrow">03 — Подход</p>
     <h2 class="section-title">Как я работаю</h2>
     <p>Слежу за трендами, чувствую стиль и всегда нахожу визуальное решение, которое выделяет проект. <strong>Вникаю в задачу клиента</strong>, а не просто выполняю ТЗ. На связи на всех этапах, соблюдаю дедлайны, умею работать как самостоятельно, так и в команде.</p>
+    <div class="process-timeline">
+      <div class="process-step">
+        <div class="process-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3h8a2 2 0 0 1 2 2v14l-3-2-2 2-2-2-2 2-3-2V5a2 2 0 0 1 2-2Z"/><path d="M9 8h6M9 12h6"/></svg>
+        </div>
+        <p class="process-title">Бриф</p>
+        <p class="process-desc">Обсуждаем задачу, референсы и результат, который нужен.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z"/><circle cx="12" cy="13" r="3.2"/></svg>
+        </div>
+        <p class="process-title">Съёмка</p>
+        <p class="process-desc">Работаю на своём оборудовании, держу свет, кадр и ритм площадки.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="2.2"/><circle cx="6" cy="18" r="2.2"/><path d="M8.5 7.5 19 17M19 7l-4.2 4.2M8.5 16.5 12.8 12.2"/></svg>
+        </div>
+        <p class="process-title">Монтаж</p>
+        <p class="process-desc">Сборка, цветокоррекция, звук — довожу ролик до финального вида.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10 12 4 3 10l9 5 9-5Z"/><path d="M3 10v6l9 5 9-5v-6"/></svg>
+        </div>
+        <p class="process-title">Сдача</p>
+        <p class="process-desc">Отдаю результат в срок, вношу правки по необходимости.</p>
+      </div>
+    </div>
   </section>
 
   <section class="clients reveal" id="clients">
@@ -1127,7 +1360,13 @@
     <div class="contacts-grid">
       <a class="contact-card" href="tel:+79031899379">
         <span class="contact-label">Телефон</span>
-        <span class="contact-value">8 (903) 189-93-79</span>
+        <span class="contact-value-row">
+          <span class="contact-value">8 (903) 189-93-79</span>
+          <button class="copy-btn" type="button" data-copy="+79031899379" aria-label="Скопировать номер телефона">
+            <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+            <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          </button>
+        </span>
       </a>
       <a class="contact-card" href="https://t.me/nikiosa" target="_blank" rel="noopener noreferrer">
         <span class="contact-label">Telegram</span>
@@ -1139,7 +1378,13 @@
       </a>
       <a class="contact-card" href="mailto:nikiosaprod@yandex.ru">
         <span class="contact-label">Email</span>
-        <span class="contact-value">nikiosaprod@yandex.ru</span>
+        <span class="contact-value-row">
+          <span class="contact-value">nikiosaprod@yandex.ru</span>
+          <button class="copy-btn" type="button" data-copy="nikiosaprod@yandex.ru" aria-label="Скопировать email">
+            <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+            <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          </button>
+        </span>
       </a>
     </div>
     <button class="btn-primary vcard-btn" id="vcardBtn" type="button">
@@ -1157,6 +1402,10 @@
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.9 3.5 2.6 11.1c-1.2.5-1.2 1.2-.2 1.5l4.9 1.5 1.9 5.9c.2.6.5.8 1 .8.6 0 .8-.3 1.1-.6l2.6-2.5 5 3.7c.9.5 1.6.2 1.8-.8l3.3-15.5c.3-1.3-.5-1.9-1.6-1.6Z"/></svg>
     Telegram
   </a>
+
+  <div class="cursor-player" id="cursorPlayer" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7L8 5Z"/></svg>
+  </div>
 
   <div class="lightbox-backdrop" id="lightboxBackdrop">
     <div class="lightbox-box" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle">
@@ -1200,6 +1449,163 @@
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
     items.forEach(function (el) { observer.observe(el); });
+  })();
+</script>
+
+<script>
+  (function () {
+    'use strict';
+    var bar = document.getElementById('scrollProgress');
+    if (!bar) return;
+
+    var ticking = false;
+    function update() {
+      var scrollTop = window.scrollY || document.documentElement.scrollTop;
+      var height = document.documentElement.scrollHeight - window.innerHeight;
+      var pct = height > 0 ? (scrollTop / height) * 100 : 0;
+      bar.style.width = Math.min(100, Math.max(0, pct)) + '%';
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        requestAnimationFrame(update);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    update();
+  })();
+</script>
+
+<script>
+  (function () {
+    'use strict';
+    var els = document.querySelectorAll('.stat-number[data-count-to]');
+    if (!els.length) return;
+
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reduceMotion || typeof IntersectionObserver === 'undefined') {
+      els.forEach(function (el) { el.textContent = el.getAttribute('data-count-to'); });
+      return;
+    }
+
+    function animateCount(el) {
+      var target = parseInt(el.getAttribute('data-count-to'), 10) || 0;
+      var duration = 1100;
+      var start = null;
+      function step(ts) {
+        if (start === null) start = ts;
+        var progress = Math.min((ts - start) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(eased * target);
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          animateCount(entry.target);
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    els.forEach(function (el) { obs.observe(el); });
+  })();
+</script>
+
+<script>
+  (function () {
+    'use strict';
+    var canHover = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!canHover || reduceMotion) return;
+
+    var portrait = document.querySelector('.portrait');
+    var frame = document.querySelector('.portrait-frame');
+    if (!portrait || !frame) return;
+
+    var maxTilt = 9;
+
+    portrait.addEventListener('mousemove', function (e) {
+      var rect = portrait.getBoundingClientRect();
+      var x = (e.clientX - rect.left) / rect.width;
+      var y = (e.clientY - rect.top) / rect.height;
+      var rotateY = (x - 0.5) * maxTilt * 2;
+      var rotateX = (0.5 - y) * maxTilt * 2;
+      frame.style.transform = 'rotateX(' + rotateX.toFixed(2) + 'deg) rotateY(' + rotateY.toFixed(2) + 'deg)';
+    });
+
+    portrait.addEventListener('mouseleave', function () {
+      frame.style.transform = 'rotateX(0deg) rotateY(0deg)';
+    });
+  })();
+</script>
+
+<script>
+  (function () {
+    'use strict';
+    var canHover = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    if (!canHover) return;
+
+    var cursor = document.getElementById('cursorPlayer');
+    var cards = document.querySelectorAll('.video-grid .video-card');
+    if (!cursor || !cards.length) return;
+
+    document.addEventListener('mousemove', function (e) {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
+
+    cards.forEach(function (card) {
+      card.classList.add('cursor-ready');
+      card.addEventListener('mouseenter', function () { cursor.classList.add('active'); });
+      card.addEventListener('mouseleave', function () { cursor.classList.remove('active'); });
+    });
+  })();
+</script>
+
+<script>
+  (function () {
+    'use strict';
+    var buttons = document.querySelectorAll('.copy-btn[data-copy]');
+    if (!buttons.length) return;
+
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var value = btn.getAttribute('data-copy');
+        var done = function () {
+          btn.classList.add('copied');
+          setTimeout(function () { btn.classList.remove('copied'); }, 1600);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(value).then(done).catch(function () {
+            fallbackCopy(value);
+            done();
+          });
+        } else {
+          fallbackCopy(value);
+          done();
+        }
+      });
+    });
+
+    function fallbackCopy(text) {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); } catch (err) {}
+      document.body.removeChild(ta);
+    }
   })();
 </script>
 
