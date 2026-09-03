@@ -311,9 +311,7 @@
     display: flex;
     align-items: flex-start;
     gap: 0.65rem;
-    font-size: 0.98rem;
-    color: var(--text);
-    padding-bottom: 0.9rem;
+    padding-bottom: 1rem;
     border-bottom: 1px solid var(--border);
   }
 
@@ -321,9 +319,23 @@
     flex: none;
     width: 7px;
     height: 7px;
-    margin-top: 0.5em;
+    margin-top: 0.55em;
     border-radius: 50%;
     background: var(--yellow);
+  }
+
+  .skill-title {
+    margin: 0 0 0.3rem;
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .skill-desc {
+    margin: 0;
+    font-size: 0.86rem;
+    line-height: 1.5;
+    color: var(--text-dim);
   }
 
   @media (max-width: 640px) {
@@ -843,15 +855,69 @@
     <p class="eyebrow amber">02 — Специализация</p>
     <h2 class="section-title">Навыки и специализация</h2>
     <ul class="skills-grid">
-      <li><span class="dot"></span>Коммерческая реклама и музыкальные клипы</li>
-      <li><span class="dot"></span>Контент для маркетплейсов (WB, Ozon, Яндекс Маркет)</li>
-      <li><span class="dot"></span>Reels и вертикальные ролики для соцсетей</li>
-      <li><span class="dot"></span>Контент для YouTube</li>
-      <li><span class="dot"></span>Свадебная съёмка</li>
-      <li><span class="dot"></span>Репортажи и интервью</li>
-      <li><span class="dot"></span>Шоуриллы</li>
-      <li><span class="dot"></span>Разработка концепции и написание сценариев</li>
-      <li><span class="dot"></span>Монтаж, цветокоррекция, работа со звуком и светом</li>
+      <li>
+        <span class="dot"></span>
+        <div>
+          <p class="skill-title">Коммерческая реклама и музыкальные клипы</p>
+          <p class="skill-desc">Ролики «под ключ» — от предпродакшна и раскадровки до финального монтажа, с фокусом на то, чтобы видео решало задачу бренда, а не просто красиво выглядело.</p>
+        </div>
+      </li>
+      <li>
+        <span class="dot"></span>
+        <div>
+          <p class="skill-title">Контент для маркетплейсов (WB, Ozon, Яндекс Маркет)</p>
+          <p class="skill-desc">Съёмка и монтаж под форматы и требования площадок: обзорные и рекламные видео для карточек товара, которые повышают доверие и конверсию.</p>
+        </div>
+      </li>
+      <li>
+        <span class="dot"></span>
+        <div>
+          <p class="skill-title">Reels и вертикальные ролики для соцсетей</p>
+          <p class="skill-desc">Короткий вертикальный формат под алгоритмы соцсетей: динамичная нарезка, ритм под музыку, удержание внимания с первых секунд.</p>
+        </div>
+      </li>
+      <li>
+        <span class="dot"></span>
+        <div>
+          <p class="skill-title">Контент для YouTube</p>
+          <p class="skill-desc">Ролики длинного формата — интервью, влоги, обзоры: выстраивание темпа повествования, чистый звук и свет, монтаж с учётом удержания зрителя.</p>
+        </div>
+      </li>
+      <li>
+        <span class="dot"></span>
+        <div>
+          <p class="skill-title">Свадебная съёмка</p>
+          <p class="skill-desc">Съёмка полного дня — от сборов до банкета, эмоциональный монтаж и клип-хайлайт, который передаёт атмосферу дня, а не просто хронологию.</p>
+        </div>
+      </li>
+      <li>
+        <span class="dot"></span>
+        <div>
+          <p class="skill-title">Репортажи и интервью</p>
+          <p class="skill-desc">Съёмка мероприятий и интервью, часто в несколько камер: оперативная работа на площадке и быстрый монтаж без потери качества.</p>
+        </div>
+      </li>
+      <li>
+        <span class="dot"></span>
+        <div>
+          <p class="skill-title">Шоуриллы</p>
+          <p class="skill-desc">Сборка компактного демо-ролика из лучших работ под конкретную задачу или клиента — чтобы за минуту показать уровень и диапазон стиля.</p>
+        </div>
+      </li>
+      <li>
+        <span class="dot"></span>
+        <div>
+          <p class="skill-title">Разработка концепции и написание сценариев</p>
+          <p class="skill-desc">Продумываю идею и визуальное решение до включения камеры: сценарий, раскадровка, референсы — чтобы съёмочный день проходил по плану.</p>
+        </div>
+      </li>
+      <li>
+        <span class="dot"></span>
+        <div>
+          <p class="skill-title">Монтаж, цветокоррекция, работа со звуком и светом</p>
+          <p class="skill-desc">Полный цикл постпродакшна — от сборки монтажа и цветокоррекции до сведения звука, плюс постановка света на самой съёмке.</p>
+        </div>
+      </li>
     </ul>
   </section>
 
