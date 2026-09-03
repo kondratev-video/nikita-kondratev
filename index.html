@@ -469,6 +469,26 @@
     margin: 0;
   }
 
+  .video-card-count {
+    position: absolute;
+    top: 0.55rem;
+    right: 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.02em;
+    color: var(--text-faint);
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0.15rem 0.5rem;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .video-card:hover .video-card-count, .video-card:focus-visible .video-card-count {
+    color: var(--yellow);
+    border-color: var(--yellow-dim);
+  }
+
   @media (max-width: 640px) {
     .video-grid { grid-template-columns: repeat(2, 1fr); }
   }
@@ -920,30 +940,37 @@
 
     <div class="video-grid">
       <a class="video-card" href="https://drive.google.com/drive/folders/1rnQLixueytjmbMAVInf9AC5t7QwyCDYd" target="_blank" rel="noopener noreferrer" data-title="Свадьбы" data-desc="Видеосъёмка и монтаж свадебных клипов — от церемонии до банкета.">
+        <span class="video-card-count">4 ролика</span>
         <p class="video-card-label">Свадьбы</p>
         <p class="video-card-hint">смотреть подборку →</p>
       </a>
       <a class="video-card" href="https://drive.google.com/drive/folders/1E5V_wdLx-kQDDphurZVeOH-_DfbWT5Od" target="_blank" rel="noopener noreferrer" data-title="ЦСКА" data-desc="Видеопроекты для ПФК ЦСКА.">
+        <span class="video-card-count">5 роликов</span>
         <p class="video-card-label">ЦСКА</p>
         <p class="video-card-hint">смотреть подборку →</p>
       </a>
       <a class="video-card" href="https://drive.google.com/drive/folders/1j8Z-t-v8V9aljIKLUE5xtFIPh7sbqQnx" target="_blank" rel="noopener noreferrer" data-title="Клипы" data-desc="Музыкальные клипы и творческие ролики.">
+        <span class="video-card-count">12 роликов</span>
         <p class="video-card-label">Клипы</p>
         <p class="video-card-hint">смотреть подборку →</p>
       </a>
       <a class="video-card" href="https://drive.google.com/drive/folders/17AR5OY1guxTyK5D9o9nc0buMi0qZ6_Wg" target="_blank" rel="noopener noreferrer" data-title="Реклама" data-desc="Рекламные и коммерческие видео для брендов.">
+        <span class="video-card-count">6 роликов</span>
         <p class="video-card-label">Реклама</p>
         <p class="video-card-hint">смотреть подборку →</p>
       </a>
       <a class="video-card" href="https://drive.google.com/drive/folders/1-X81Ix3xtQWHSQ_zPsKZ_Xiwzbjg1LXx" target="_blank" rel="noopener noreferrer" data-title="Рестораны" data-desc="Видео для ресторанов и заведений общепита.">
+        <span class="video-card-count">3 ролика</span>
         <p class="video-card-label">Рестораны</p>
         <p class="video-card-hint">смотреть подборку →</p>
       </a>
       <a class="video-card" href="https://drive.google.com/drive/folders/1EIEuV2_pYSjhWiZzwDKCyRUFTOllGH01" target="_blank" rel="noopener noreferrer" data-title="Reels" data-desc="Короткие вертикальные ролики для соцсетей.">
+        <span class="video-card-count">4 ролика</span>
         <p class="video-card-label">Reels</p>
         <p class="video-card-hint">смотреть подборку →</p>
       </a>
       <a class="video-card" href="https://drive.google.com/drive/folders/1wG7zG3hRamoGctxGt8GxhQHsJj3lcg0f" target="_blank" rel="noopener noreferrer" data-title="Instagram" data-desc="Контент для Instagram — сторис, рилсы, посты.">
+        <span class="video-card-count">6 роликов</span>
         <p class="video-card-label">Instagram</p>
         <p class="video-card-hint">смотреть подборку →</p>
       </a>
