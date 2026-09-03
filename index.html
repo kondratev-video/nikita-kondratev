@@ -251,6 +251,39 @@
 
   .equip-note strong { color: var(--text); }
 
+  .equip-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem;
+    margin-top: 0.9rem;
+    padding-top: 0.9rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .equip-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .equip-item-label {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+  }
+
+  .equip-item-value {
+    font-size: 0.88rem;
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  @media (max-width: 640px) {
+    .equip-grid { grid-template-columns: 1fr; }
+  }
+
   /* ---------- Skills ---------- */
 
   .skills-grid {
@@ -623,6 +656,20 @@
     <p>15 лет в видеопроизводстве. За это время реализовал проекты для крупного бизнеса, федеральных брендов и частных клиентов. Берусь за проект на любом этапе — от концепции до финального ролика — и довожу до результата <strong>в срок</strong>.</p>
     <div class="equip-note">
       <strong>Оборудование:</strong> работаю на собственном профессиональном оборудовании премиум-класса — дополнительная аренда техники не требуется.
+      <div class="equip-grid">
+        <div class="equip-item">
+          <span class="equip-item-label">Камера</span>
+          <span class="equip-item-value">Sony A7S III</span>
+        </div>
+        <div class="equip-item">
+          <span class="equip-item-label">Стабилизатор</span>
+          <span class="equip-item-value">DJI RS 3</span>
+        </div>
+        <div class="equip-item">
+          <span class="equip-item-label">Квадрокоптер</span>
+          <span class="equip-item-value">DJI Mini 3</span>
+        </div>
+      </div>
     </div>
   </section>
 

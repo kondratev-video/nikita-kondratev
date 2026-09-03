@@ -2,4 +2,4 @@
 
 Одностраничный сайт-визитка видеооператора / видеографа. Чистый HTML/CSS/JS без фреймворков.
 
-Живая версия: https://ivanchemodanov95.github.io/nikita-kondratev/
+Живая версия: https://kondratev-video.github.io/nikita-kondratev/
