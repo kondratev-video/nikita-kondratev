@@ -5,6 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Никита Кондратьев — видеооператор</title>
 <meta name="description" content="Никита Кондратьев — видеограф / видеооператор / reelsmaker. 15 лет в видеопроизводстве.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Никита Кондратьев">
+<meta property="og:title" content="Никита Кондратьев — видеооператор">
+<meta property="og:description" content="Видеограф / Видеооператор / Reelsmaker. 15 лет в видеопроизводстве — от концепции до финального ролика.">
+<meta property="og:image" content="https://kondratev-video.github.io/nikita-kondratev/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://kondratev-video.github.io/nikita-kondratev/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Никита Кондратьев — видеооператор">
+<meta name="twitter:description" content="Видеограф / Видеооператор / Reelsmaker. 15 лет в видеопроизводстве.">
+<meta name="twitter:image" content="https://kondratev-video.github.io/nikita-kondratev/og-image.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -549,6 +561,135 @@
     .contacts-grid { grid-template-columns: 1fr; }
   }
 
+  /* ---------- Testimonials ---------- */
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.9rem;
+  }
+
+  .testimonial-card {
+    padding: 1.1rem 1.2rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-s);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .testimonial-stars {
+    color: var(--yellow);
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+  }
+
+  .testimonial-text {
+    font-size: 0.92rem;
+    color: var(--text-dim);
+    margin: 0;
+    line-height: 1.55;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.2rem;
+  }
+
+  .testimonial-name {
+    font-weight: 700;
+    color: var(--text);
+    font-size: 0.9rem;
+  }
+
+  .testimonial-tag {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text-faint);
+  }
+
+  @media (max-width: 640px) {
+    .testimonials-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- Lightbox ---------- */
+
+  .lightbox-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.72);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+    padding: 1.5rem;
+  }
+
+  .lightbox-backdrop.open { display: flex; }
+
+  .lightbox-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 2px solid var(--yellow);
+    border-radius: var(--radius-m);
+    max-width: 420px;
+    width: 100%;
+    padding: 1.6rem;
+    position: relative;
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: 0.7rem;
+    right: 0.7rem;
+    background: none;
+    border: none;
+    color: var(--text-faint);
+    font-size: 1.3rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0.4rem;
+  }
+
+  .lightbox-close:hover { color: var(--text); }
+
+  .lightbox-label {
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin: 0 0 0.6rem;
+  }
+
+  .lightbox-title {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0 0 0.8rem;
+  }
+
+  .lightbox-desc {
+    font-size: 0.94rem;
+    color: var(--text-dim);
+    margin: 0 0 1.4rem;
+    line-height: 1.55;
+  }
+
+  /* ---------- vCard button ---------- */
+
+  .vcard-btn {
+    border: none;
+    cursor: pointer;
+    margin-top: 1.2rem;
+    font-family: var(--font-body);
+  }
+
   /* ---------- Floating Telegram (mobile) ---------- */
 
   .float-tg { display: none; }
@@ -627,6 +768,7 @@
       <li><a href="#about">Обо мне</a></li>
       <li><a href="#skills">Навыки</a></li>
       <li><a href="#clients">Клиенты</a></li>
+      <li><a href="#testimonials">Отзывы</a></li>
       <li><a href="#portfolio">Портфолио</a></li>
       <li><a href="#contacts">Контакты</a></li>
     </ul>
@@ -713,8 +855,63 @@
     <p class="clients-caption">и другие частные и корпоративные клиенты</p>
   </section>
 
+  <section class="testimonials" id="testimonials">
+    <p class="eyebrow">05 — Отзывы</p>
+    <h2 class="section-title">Что говорят клиенты</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">«Никита подключился оперативно к задаче и выполнил её за очень короткий срок качественно, по ТЗ. Очень рекомендую его к сотрудничеству!»</p>
+        <div class="testimonial-author">
+          <span class="testimonial-name">Зарина</span>
+          <span class="testimonial-tag">Видеомонтаж</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">«Отличный видеограф, который знает своё дело, очень быстро прислал чудесную качественную работу, помогал в создании кадров, очень тактичный и ответственный специалист».</p>
+        <div class="testimonial-author">
+          <span class="testimonial-name">Диана</span>
+          <span class="testimonial-tag">Видеосъёмка свадеб</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">«Оперативность, точность и сам результат. Спасибо большое!»</p>
+        <div class="testimonial-author">
+          <span class="testimonial-name">Роман</span>
+          <span class="testimonial-tag">Видеооператоры</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">«Быстро, точно в срок, в соответствии с пожеланиями, нормально воспринял корректировки к задаче в процессе и сделал, что требовалось».</p>
+        <div class="testimonial-author">
+          <span class="testimonial-name">Мария</span>
+          <span class="testimonial-tag">Видеомонтаж</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">«Никита — топ! Снимал нам свадебный клип, который получился просто огненным. Создавал комфортную атмосферу при съёмке, подстраивался под наш ритм. Профессионал своего дела, очень рекомендую!»</p>
+        <div class="testimonial-author">
+          <span class="testimonial-name">Юлия</span>
+          <span class="testimonial-tag">Видеосъёмка свадеб</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">«Всё прошло отлично! Профессионал своего дела! Рекомендую!»</p>
+        <div class="testimonial-author">
+          <span class="testimonial-name">Клиент</span>
+          <span class="testimonial-tag">Студийная видеосъёмка</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="portfolio" id="portfolio">
-    <p class="eyebrow">05 — Портфолио</p>
+    <p class="eyebrow">06 — Портфолио</p>
     <h2 class="section-title">Смотреть работы</h2>
     <p class="video-embed-label">Общий шоурил</p>
     <div class="video-embed">
@@ -722,31 +919,31 @@
     </div>
 
     <div class="video-grid">
-      <a class="video-card" href="https://drive.google.com/drive/folders/1rnQLixueytjmbMAVInf9AC5t7QwyCDYd" target="_blank" rel="noopener noreferrer">
+      <a class="video-card" href="https://drive.google.com/drive/folders/1rnQLixueytjmbMAVInf9AC5t7QwyCDYd" target="_blank" rel="noopener noreferrer" data-title="Свадьбы" data-desc="Видеосъёмка и монтаж свадебных клипов — от церемонии до банкета.">
         <p class="video-card-label">Свадьбы</p>
         <p class="video-card-hint">смотреть подборку →</p>
       </a>
-      <a class="video-card" href="https://drive.google.com/drive/folders/1E5V_wdLx-kQDDphurZVeOH-_DfbWT5Od" target="_blank" rel="noopener noreferrer">
+      <a class="video-card" href="https://drive.google.com/drive/folders/1E5V_wdLx-kQDDphurZVeOH-_DfbWT5Od" target="_blank" rel="noopener noreferrer" data-title="ЦСКА" data-desc="Видеопроекты для ПФК ЦСКА.">
         <p class="video-card-label">ЦСКА</p>
         <p class="video-card-hint">смотреть подборку →</p>
       </a>
-      <a class="video-card" href="https://drive.google.com/drive/folders/1j8Z-t-v8V9aljIKLUE5xtFIPh7sbqQnx" target="_blank" rel="noopener noreferrer">
+      <a class="video-card" href="https://drive.google.com/drive/folders/1j8Z-t-v8V9aljIKLUE5xtFIPh7sbqQnx" target="_blank" rel="noopener noreferrer" data-title="Клипы" data-desc="Музыкальные клипы и творческие ролики.">
         <p class="video-card-label">Клипы</p>
         <p class="video-card-hint">смотреть подборку →</p>
       </a>
-      <a class="video-card" href="https://drive.google.com/drive/folders/17AR5OY1guxTyK5D9o9nc0buMi0qZ6_Wg" target="_blank" rel="noopener noreferrer">
+      <a class="video-card" href="https://drive.google.com/drive/folders/17AR5OY1guxTyK5D9o9nc0buMi0qZ6_Wg" target="_blank" rel="noopener noreferrer" data-title="Реклама" data-desc="Рекламные и коммерческие видео для брендов.">
         <p class="video-card-label">Реклама</p>
         <p class="video-card-hint">смотреть подборку →</p>
       </a>
-      <a class="video-card" href="https://drive.google.com/drive/folders/1-X81Ix3xtQWHSQ_zPsKZ_Xiwzbjg1LXx" target="_blank" rel="noopener noreferrer">
+      <a class="video-card" href="https://drive.google.com/drive/folders/1-X81Ix3xtQWHSQ_zPsKZ_Xiwzbjg1LXx" target="_blank" rel="noopener noreferrer" data-title="Рестораны" data-desc="Видео для ресторанов и заведений общепита.">
         <p class="video-card-label">Рестораны</p>
         <p class="video-card-hint">смотреть подборку →</p>
       </a>
-      <a class="video-card" href="https://drive.google.com/drive/folders/1EIEuV2_pYSjhWiZzwDKCyRUFTOllGH01" target="_blank" rel="noopener noreferrer">
+      <a class="video-card" href="https://drive.google.com/drive/folders/1EIEuV2_pYSjhWiZzwDKCyRUFTOllGH01" target="_blank" rel="noopener noreferrer" data-title="Reels" data-desc="Короткие вертикальные ролики для соцсетей.">
         <p class="video-card-label">Reels</p>
         <p class="video-card-hint">смотреть подборку →</p>
       </a>
-      <a class="video-card" href="https://drive.google.com/drive/folders/1wG7zG3hRamoGctxGt8GxhQHsJj3lcg0f" target="_blank" rel="noopener noreferrer">
+      <a class="video-card" href="https://drive.google.com/drive/folders/1wG7zG3hRamoGctxGt8GxhQHsJj3lcg0f" target="_blank" rel="noopener noreferrer" data-title="Instagram" data-desc="Контент для Instagram — сторис, рилсы, посты.">
         <p class="video-card-label">Instagram</p>
         <p class="video-card-hint">смотреть подборку →</p>
       </a>
@@ -762,7 +959,7 @@
   </section>
 
   <section class="contacts" id="contacts">
-    <p class="eyebrow amber">06 — Контакты</p>
+    <p class="eyebrow amber">07 — Контакты</p>
     <h2 class="section-title">Связаться</h2>
     <div class="contacts-grid">
       <a class="contact-card" href="tel:+79031899379">
@@ -782,6 +979,10 @@
         <span class="contact-value">nikiosaprod@yandex.ru</span>
       </a>
     </div>
+    <button class="btn-primary vcard-btn" id="vcardBtn" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+      Скачать визитку (vCard)
+    </button>
   </section>
 
   <footer>
@@ -794,6 +995,19 @@
     Telegram
   </a>
 
+  <div class="lightbox-backdrop" id="lightboxBackdrop">
+    <div class="lightbox-box" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle">
+      <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Закрыть">✕</button>
+      <p class="lightbox-label">Портфолио</p>
+      <h3 class="lightbox-title" id="lightboxTitle"></h3>
+      <p class="lightbox-desc" id="lightboxDesc"></p>
+      <a class="btn-primary" id="lightboxLink" href="#" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7L8 5Z"/></svg>
+        Открыть на Диске
+      </a>
+    </div>
+  </div>
+
 </div>
 
 <script>
@@ -801,6 +1015,78 @@
     'use strict';
     var yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
+  })();
+</script>
+
+<script>
+  (function () {
+    'use strict';
+    var backdrop = document.getElementById('lightboxBackdrop');
+    var titleEl = document.getElementById('lightboxTitle');
+    var descEl = document.getElementById('lightboxDesc');
+    var linkEl = document.getElementById('lightboxLink');
+    var closeBtn = document.getElementById('lightboxClose');
+    if (!backdrop) return;
+
+    function openLightbox(card) {
+      titleEl.textContent = card.getAttribute('data-title') || '';
+      descEl.textContent = card.getAttribute('data-desc') || '';
+      linkEl.href = card.getAttribute('href');
+      backdrop.classList.add('open');
+    }
+    function closeLightbox() {
+      backdrop.classList.remove('open');
+    }
+
+    var cards = document.querySelectorAll('.video-card[data-title]');
+    for (var i = 0; i < cards.length; i++) {
+      cards[i].addEventListener('click', function (e) {
+        e.preventDefault();
+        openLightbox(this);
+      });
+    }
+    closeBtn.addEventListener('click', closeLightbox);
+    backdrop.addEventListener('click', function (e) {
+      if (e.target === backdrop) closeLightbox();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  })();
+</script>
+
+<script>
+  (function () {
+    'use strict';
+    var btn = document.getElementById('vcardBtn');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      var lines = [
+        'BEGIN:VCARD',
+        'VERSION:3.0',
+        'N:Кондратьев;Никита;;;',
+        'FN:Никита Кондратьев',
+        'TITLE:Видеограф / Видеооператор / Reelsmaker',
+        'TEL;TYPE=CELL:+79031899379',
+        'EMAIL:nikiosaprod@yandex.ru',
+        'URL:https://t.me/nikiosa',
+        'END:VCARD'
+      ];
+      var vcard = lines.join('\r\n');
+      try {
+        var blob = new Blob([vcard], { type: 'text/vcard' });
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement('a');
+        a.href = url;
+        a.download = 'nikita-kondratev.vcf';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(function () { URL.revokeObjectURL(url); }, 1500);
+      } catch (err) {
+        window.location.href = 'data:text/vcard;charset=utf-8,' + encodeURIComponent(vcard);
+      }
+    });
   })();
 </script>
 
