@@ -344,7 +344,7 @@
 
   /* ---------- Approach ---------- */
 
-  .approach p {
+  .approach p:not(.eyebrow) {
     max-width: 62ch;
     margin: 0 auto;
     color: var(--text-dim);
@@ -722,6 +722,46 @@
     font-family: var(--font-body);
   }
 
+  /* ---------- Scroll reveal ---------- */
+
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .skills-grid li,
+    .testimonials-grid .testimonial-card,
+    .video-grid .video-card {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .reveal.in-view .skills-grid li,
+    .reveal.in-view .testimonials-grid .testimonial-card,
+    .reveal.in-view .video-grid .video-card {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .skills-grid li:nth-child(1), .testimonials-grid .testimonial-card:nth-child(1), .video-grid .video-card:nth-child(1) { transition-delay: 0.05s; }
+    .skills-grid li:nth-child(2), .testimonials-grid .testimonial-card:nth-child(2), .video-grid .video-card:nth-child(2) { transition-delay: 0.1s; }
+    .skills-grid li:nth-child(3), .testimonials-grid .testimonial-card:nth-child(3), .video-grid .video-card:nth-child(3) { transition-delay: 0.15s; }
+    .skills-grid li:nth-child(4), .testimonials-grid .testimonial-card:nth-child(4), .video-grid .video-card:nth-child(4) { transition-delay: 0.2s; }
+    .skills-grid li:nth-child(5), .testimonials-grid .testimonial-card:nth-child(5), .video-grid .video-card:nth-child(5) { transition-delay: 0.25s; }
+    .skills-grid li:nth-child(6), .testimonials-grid .testimonial-card:nth-child(6), .video-grid .video-card:nth-child(6) { transition-delay: 0.3s; }
+    .skills-grid li:nth-child(7), .video-grid .video-card:nth-child(7) { transition-delay: 0.35s; }
+    .skills-grid li:nth-child(8), .video-grid .video-card:nth-child(8) { transition-delay: 0.4s; }
+    .skills-grid li:nth-child(9), .video-grid .video-card:nth-child(9) { transition-delay: 0.45s; }
+  }
+
   /* ---------- Floating Telegram (mobile) ---------- */
 
   .float-tg { display: none; }
@@ -828,7 +868,7 @@
     </div>
   </header>
 
-  <section class="about" id="about">
+  <section class="about reveal" id="about">
     <p class="eyebrow">01 — О себе</p>
     <h2 class="section-title">Обо мне</h2>
     <p>15 лет в видеопроизводстве. За это время реализовал проекты для крупного бизнеса, федеральных брендов и частных клиентов. Берусь за проект на любом этапе — от концепции до финального ролика — и довожу до результата <strong>в срок</strong>.</p>
@@ -851,7 +891,7 @@
     </div>
   </section>
 
-  <section class="skills" id="skills">
+  <section class="skills reveal" id="skills">
     <p class="eyebrow amber">02 — Специализация</p>
     <h2 class="section-title">Навыки и специализация</h2>
     <ul class="skills-grid">
@@ -921,13 +961,13 @@
     </ul>
   </section>
 
-  <section class="approach">
+  <section class="approach reveal">
     <p class="eyebrow">03 — Подход</p>
     <h2 class="section-title">Как я работаю</h2>
     <p>Слежу за трендами, чувствую стиль и всегда нахожу визуальное решение, которое выделяет проект. <strong>Вникаю в задачу клиента</strong>, а не просто выполняю ТЗ. На связи на всех этапах, соблюдаю дедлайны, умею работать как самостоятельно, так и в команде.</p>
   </section>
 
-  <section class="clients" id="clients">
+  <section class="clients reveal" id="clients">
     <p class="eyebrow amber">04 — Клиенты</p>
     <h2 class="section-title">С кем уже работал</h2>
     <div class="clients-strip">
@@ -941,7 +981,7 @@
     <p class="clients-caption">и другие частные и корпоративные клиенты</p>
   </section>
 
-  <section class="testimonials" id="testimonials">
+  <section class="testimonials reveal" id="testimonials">
     <p class="eyebrow">05 — Отзывы</p>
     <h2 class="section-title">Что говорят клиенты</h2>
     <div class="testimonials-grid">
@@ -996,7 +1036,7 @@
     </div>
   </section>
 
-  <section class="portfolio" id="portfolio">
+  <section class="portfolio reveal" id="portfolio">
     <p class="eyebrow">06 — Портфолио</p>
     <h2 class="section-title">Смотреть работы</h2>
     <p class="video-embed-label">Общий шоурил</p>
@@ -1040,6 +1080,16 @@
         <p class="video-card-label">Instagram</p>
         <p class="video-card-hint">смотреть подборку →</p>
       </a>
+      <a class="video-card" href="https://drive.google.com/drive/folders/1KReF0y0MRIRmcimFYK1svpQSnG7LOLb0" target="_blank" rel="noopener noreferrer" data-title="Концерты" data-desc="Съёмка концертов и живых выступлений.">
+        <span class="video-card-count">3 ролика</span>
+        <p class="video-card-label">Концерты</p>
+        <p class="video-card-hint">смотреть подборку →</p>
+      </a>
+      <a class="video-card" href="https://drive.google.com/drive/folders/1RnhyEXTln939flbCuwTVt5-DfGXdnAI5" target="_blank" rel="noopener noreferrer" data-title="Интервью" data-desc="Съёмка интервью и репортажных бесед.">
+        <span class="video-card-count">6 роликов</span>
+        <p class="video-card-label">Интервью</p>
+        <p class="video-card-hint">смотреть подборку →</p>
+      </a>
     </div>
 
     <div class="portfolio-cta">
@@ -1051,7 +1101,7 @@
     </div>
   </section>
 
-  <section class="contacts" id="contacts">
+  <section class="contacts reveal" id="contacts">
     <p class="eyebrow amber">07 — Контакты</p>
     <h2 class="section-title">Связаться</h2>
     <div class="contacts-grid">
@@ -1108,6 +1158,28 @@
     'use strict';
     var yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
+  })();
+</script>
+
+<script>
+  (function () {
+    'use strict';
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion || typeof IntersectionObserver === 'undefined') return;
+
+    var items = document.querySelectorAll('.reveal');
+    if (!items.length) return;
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    items.forEach(function (el) { observer.observe(el); });
   })();
 </script>
 
