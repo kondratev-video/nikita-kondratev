@@ -423,10 +423,15 @@
     border-radius: var(--radius-s);
     overflow: hidden;
     background: var(--surface);
+    border: 1px solid var(--border);
+    text-decoration: none;
+    transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
   }
 
-  .video-card.pending {
-    border: 1px dashed var(--border);
+  .video-card:hover, .video-card:focus-visible {
+    border-color: var(--yellow-dim);
+    background: var(--yellow-soft);
+    transform: translateY(-1px);
   }
 
   .video-card iframe {
@@ -448,8 +453,7 @@
 
   .video-card-hint {
     font-size: 0.74rem;
-    color: var(--text-faint);
-    font-style: italic;
+    color: var(--text-dim);
     margin: 0;
   }
 
@@ -718,26 +722,34 @@
     </div>
 
     <div class="video-grid">
-      <div class="video-card pending">
+      <a class="video-card" href="https://drive.google.com/drive/folders/1rnQLixueytjmbMAVInf9AC5t7QwyCDYd" target="_blank" rel="noopener noreferrer">
         <p class="video-card-label">Свадьбы</p>
-        <p class="video-card-hint">видео скоро</p>
-      </div>
-      <div class="video-card pending">
+        <p class="video-card-hint">смотреть подборку →</p>
+      </a>
+      <a class="video-card" href="https://drive.google.com/drive/folders/1E5V_wdLx-kQDDphurZVeOH-_DfbWT5Od" target="_blank" rel="noopener noreferrer">
         <p class="video-card-label">ЦСКА</p>
-        <p class="video-card-hint">видео скоро</p>
-      </div>
-      <div class="video-card pending">
+        <p class="video-card-hint">смотреть подборку →</p>
+      </a>
+      <a class="video-card" href="https://drive.google.com/drive/folders/1j8Z-t-v8V9aljIKLUE5xtFIPh7sbqQnx" target="_blank" rel="noopener noreferrer">
         <p class="video-card-label">Клипы</p>
-        <p class="video-card-hint">видео скоро</p>
-      </div>
-      <div class="video-card pending">
+        <p class="video-card-hint">смотреть подборку →</p>
+      </a>
+      <a class="video-card" href="https://drive.google.com/drive/folders/17AR5OY1guxTyK5D9o9nc0buMi0qZ6_Wg" target="_blank" rel="noopener noreferrer">
         <p class="video-card-label">Реклама</p>
-        <p class="video-card-hint">видео скоро</p>
-      </div>
-      <div class="video-card pending">
+        <p class="video-card-hint">смотреть подборку →</p>
+      </a>
+      <a class="video-card" href="https://drive.google.com/drive/folders/1-X81Ix3xtQWHSQ_zPsKZ_Xiwzbjg1LXx" target="_blank" rel="noopener noreferrer">
         <p class="video-card-label">Рестораны</p>
-        <p class="video-card-hint">видео скоро</p>
-      </div>
+        <p class="video-card-hint">смотреть подборку →</p>
+      </a>
+      <a class="video-card" href="https://drive.google.com/drive/folders/1EIEuV2_pYSjhWiZzwDKCyRUFTOllGH01" target="_blank" rel="noopener noreferrer">
+        <p class="video-card-label">Reels</p>
+        <p class="video-card-hint">смотреть подборку →</p>
+      </a>
+      <a class="video-card" href="https://drive.google.com/drive/folders/1wG7zG3hRamoGctxGt8GxhQHsJj3lcg0f" target="_blank" rel="noopener noreferrer">
+        <p class="video-card-label">Instagram</p>
+        <p class="video-card-hint">смотреть подборку →</p>
+      </a>
     </div>
 
     <div class="portfolio-cta">
