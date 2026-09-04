@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kondratev-video.github.io/nikita-kondratev/sitemap.xml
