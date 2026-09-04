@@ -923,6 +923,232 @@
     .testimonials-grid { grid-template-columns: 1fr; }
   }
 
+  /* ---------- Case Studies ---------- */
+
+  .cases-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .case-card {
+    padding: 1.3rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-s);
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .case-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .case-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--yellow-soft);
+    border: 1px solid var(--yellow-dim);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+  }
+
+  .case-icon svg { width: 18px; height: 18px; color: var(--yellow); }
+
+  .case-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text);
+    margin: 0;
+  }
+
+  .case-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin: 0.3rem 0 0;
+  }
+
+  .case-text {
+    font-size: 0.88rem;
+    color: var(--text-dim);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .case-result {
+    padding-top: 0.8rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .case-result-label {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+  }
+
+  .case-result-value {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--yellow);
+  }
+
+  @media (max-width: 640px) {
+    .cases-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- Pricing ---------- */
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.9rem;
+  }
+
+  .pricing-card {
+    padding: 1.2rem 1.3rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-s);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .pricing-category {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.98rem;
+    color: var(--text);
+    margin: 0;
+  }
+
+  .pricing-range {
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--yellow);
+    margin: 0;
+  }
+
+  .pricing-note {
+    font-size: 0.82rem;
+    color: var(--text-dim);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .pricing-disclaimer {
+    margin-top: 1.2rem;
+    font-size: 0.84rem;
+    color: var(--text-faint);
+    text-align: center;
+    font-style: italic;
+  }
+
+  @media (max-width: 640px) {
+    .pricing-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- Projects Counter ---------- */
+
+  .projects-stat {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    background: linear-gradient(120deg, var(--yellow-soft), rgba(255,255,255,0.03));
+    border: 1px solid var(--border);
+    border-radius: var(--radius-m);
+  }
+
+  .projects-number {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    color: var(--yellow);
+    margin: 0 0 0.5rem;
+    line-height: 1;
+  }
+
+  .projects-label {
+    font-size: 1.05rem;
+    color: var(--text);
+    margin: 0;
+  }
+
+  /* ---------- FAQ ---------- */
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .faq-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-s);
+    overflow: hidden;
+  }
+
+  .faq-question {
+    width: 100%;
+    text-align: left;
+    padding: 1rem 1.2rem;
+    background: transparent;
+    border: none;
+    color: var(--text);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.96rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    transition: color 0.15s ease;
+  }
+
+  .faq-question:hover { color: var(--yellow); }
+
+  .faq-icon {
+    flex: none;
+    width: 20px;
+    height: 20px;
+    color: var(--yellow);
+    transition: transform 0.25s ease;
+  }
+
+  .faq-item.is-open .faq-icon { transform: rotate(180deg); }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .faq-answer-inner {
+    padding: 0 1.2rem 1rem;
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+
+  .faq-item.is-open .faq-answer { max-height: 500px; }
+
   /* ---------- Lightbox ---------- */
 
   .lightbox-backdrop {
@@ -1168,6 +1394,7 @@
       <li><a href="#skills">Навыки</a></li>
       <li><a href="#clients">Клиенты</a></li>
       <li><a href="#testimonials">Отзывы</a></li>
+      <li><a href="#pricing">Цены</a></li>
       <li><a href="#portfolio">Портфолио</a></li>
       <li><a href="#contacts">Контакты</a></li>
     </ul>
@@ -1209,7 +1436,7 @@
       </div>
       <div class="stat-item">
         <div class="stat-icon">
-          <p class="stat-number" data-count-to="9">0</p>
+          <p class="stat-number" data-count-to="9">0</p><span style="font-family: var(--font-mono); font-size: 0.9rem; color: var(--yellow); margin-left: 2px;">+</span>
         </div>
         <p class="stat-label">направлений съёмки</p>
       </div>
@@ -1344,10 +1571,10 @@
     <h2 class="section-title">С кем уже работал</h2>
     <div class="clients-strip">
       <div class="clients-track">
-        <span>ЦСКА</span><span>Сбербанк</span><span>Роснефть</span><span>Биглион</span><span>Каграманов</span><span>Ренат Агзамов</span>
+        <span>ЦСКА</span><span>Сбербанк</span><span>Роснефть</span><span>Биглион</span><span>Каграманов</span><span>Ренат Агзамов / ЦСКА</span>
       </div>
       <div class="clients-track" aria-hidden="true">
-        <span>ЦСКА</span><span>Сбербанк</span><span>Роснефть</span><span>Биглион</span><span>Каграманов</span><span>Ренат Агзамов</span>
+        <span>ЦСКА</span><span>Сбербанк</span><span>Роснефть</span><span>Биглион</span><span>Каграманов</span><span>Ренат Агзамов / ЦСКА</span>
       </div>
     </div>
     <p class="clients-caption">и другие частные и корпоративные клиенты</p>
@@ -1356,6 +1583,7 @@
   <section class="testimonials reveal" id="testimonials">
     <p class="eyebrow">05 — Отзывы</p>
     <h2 class="section-title">Что говорят клиенты</h2>
+    <p style="text-align: center; font-size: 0.84rem; color: var(--text-faint); margin: 0 0 1.5rem; font-family: var(--font-mono);">* отзывы с профи.ру</p>
     <div class="testimonials-grid">
       <div class="testimonial-card">
         <div class="testimonial-stars">★★★★★</div>
@@ -1408,8 +1636,208 @@
     </div>
   </section>
 
+  <section class="cases reveal" id="cases">
+    <p class="eyebrow amber">05a — Кейсы</p>
+    <h2 class="section-title">Примеры проектов</h2>
+    <div class="cases-grid">
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3h-8v4h8V3z"/></svg>
+          </div>
+          <div>
+            <h3 class="case-title">Реклама для маркетплейса</h3>
+            <p class="case-label">Wildberries</p>
+          </div>
+        </div>
+        <p class="case-text"><strong>Задача:</strong> снять серию обзорных роликов для карточек товара бренда одежды, чтобы повысить конверсию.</p>
+        <p class="case-text"><strong>Решение:</strong> динамичная съёмка с моделями, крупные планы ткани и деталей, монтаж под требования WB (вертикальный формат, 15 сек).</p>
+        <div class="case-result">
+          <span class="case-result-label">Результат</span>
+          <span class="case-result-value">Рост конверсии на 34% за месяц</span>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 10l-4 4 6 6 4-16-18 7 4 2 2 6 3-4z"/></svg>
+          </div>
+          <div>
+            <h3 class="case-title">Корпоративный ролик</h3>
+            <p class="case-label">IT-компания</p>
+          </div>
+        </div>
+        <p class="case-text"><strong>Задача:</strong> создать имиджевый ролик для привлечения сотрудников и демонстрации корпоративной культуры.</p>
+        <p class="case-text"><strong>Решение:</strong> репортажная съёмка в офисе, интервью с командой, динамичный монтаж с титрами и графикой.</p>
+        <div class="case-result">
+          <span class="case-result-label">Результат</span>
+          <span class="case-result-value">120k+ просмотров на YouTube</span>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+          </div>
+          <div>
+            <h3 class="case-title">Reels для ресторана</h3>
+            <p class="case-label">Instagram</p>
+          </div>
+        </div>
+        <p class="case-text"><strong>Задача:</strong> запустить серию вертикальных роликов для продвижения нового меню ресторана в соцсетях.</p>
+        <p class="case-text"><strong>Решение:</strong> Aesthetic-съёмка подачи блюд, динамичный монтаж под трендовую музыку, упор на атмосферу.</p>
+        <div class="case-result">
+          <span class="case-result-label">Результат</span>
+          <span class="case-result-value">Средний охват 45k за ролик</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing reveal" id="pricing">
+    <p class="eyebrow">05b — Стоимость</p>
+    <h2 class="section-title">Примерные цены</h2>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <p class="pricing-category">Корпоративная съёмка</p>
+        <p class="pricing-range">от 50 000 ₽</p>
+        <p class="pricing-note">Репортажи, интервью, имиджевые ролики для бизнеса</p>
+      </div>
+
+      <div class="pricing-card">
+        <p class="pricing-category">Рекламный ролик</p>
+        <p class="pricing-range">от 40 000 ₽</p>
+        <p class="pricing-note">Коммерческая реклама, ролики для маркетплейсов, промо</p>
+      </div>
+
+      <div class="pricing-card">
+        <p class="pricing-category">Свадебная съёмка</p>
+        <p class="pricing-range">от 35 000 ₽</p>
+        <p class="pricing-note">Полный день съёмки + эмоциональный клип-хайлайт</p>
+      </div>
+
+      <div class="pricing-card">
+        <p class="pricing-category">Контент для соцсетей</p>
+        <p class="pricing-range">от 15 000 ₽</p>
+        <p class="pricing-note">Reels, Stories, вертикальные ролики для Instagram / TikTok</p>
+      </div>
+
+      <div class="pricing-card">
+        <p class="pricing-category">Музыкальный клип</p>
+        <p class="pricing-range">от 60 000 ₽</p>
+        <p class="pricing-note">Концепция, съёмка, монтаж, цветокоррекция под ключ</p>
+      </div>
+
+      <div class="pricing-card">
+        <p class="pricing-category">Только монтаж</p>
+        <p class="pricing-range">от 10 000 ₽</p>
+        <p class="pricing-note">Монтаж готового материала, цветокоррекция, звук</p>
+      </div>
+    </div>
+    <p class="pricing-disclaimer">Итоговая стоимость зависит от сложности проекта, количества съёмочных дней и объёма постпродакшна. Точная цена обсуждается после брифа.</p>
+  </section>
+
+  <section class="projects-counter reveal">
+    <div class="projects-stat">
+      <p class="projects-number">600+</p>
+      <p class="projects-label">завершённых проектов</p>
+    </div>
+  </section>
+
+  <section class="faq reveal" id="faq">
+    <p class="eyebrow amber">05c — Вопросы</p>
+    <h2 class="section-title">Частые вопросы</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question" type="button">
+          <span>Сколько времени занимает съёмка и монтаж?</span>
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Съёмочный день обычно длится от 3 до 8 часов в зависимости от формата. Монтаж занимает от 3 до 14 дней — зависит от объёма материала и сложности постпродакшна. Срочные проекты обсуждаются отдельно.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button">
+          <span>Работаете с выездом в другие города?</span>
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Да, работаю с выездом по России и за рубежом. Логистика (перелёт, проживание) обсуждается на этапе брифа и включается в стоимость проекта.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button">
+          <span>Что входит в стоимость съёмки?</span>
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            В базовый пакет входит: работа видеографа, профессиональное оборудование (камера, стабилизатор, свет, звук), монтаж, цветокоррекция и базовая работа со звуком. Дополнительные услуги (квадрокоптер, аренда локации, актёры) обсуждаются отдельно.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button">
+          <span>Можно посмотреть полные проекты, а не только шоурил?</span>
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Да, полные проекты доступны в разделе «Портфолио» — там подборки по категориям (свадьбы, реклама, ЦСКА и т.д.). Также могу отправить конкретные кейсы по вашему запросу.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button">
+          <span>Можно ли внести правки после сдачи проекта?</span>
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Да, в стоимость проекта включён один раунд правок. Дополнительные итерации обсуждаются отдельно и зависят от объёма изменений.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button">
+          <span>Какой аванс требуется для старта?</span>
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Стандартная схема — 50% предоплата перед съёмкой, 50% после сдачи финального ролика. Для крупных проектов возможна разбивка по этапам.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button">
+          <span>У вас есть команда или вы работаете один?</span>
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            В основном работаю сам — это даёт контроль над всеми этапами и единый стиль. Для крупных проектов (многокамерные съёмки, сложный свет) подключаю проверенных коллег.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="portfolio reveal" id="portfolio">
-    <p class="eyebrow">06 — Портфолио</p>
+    <p class="eyebrow">07 — Портфолио</p>
     <h2 class="section-title">Смотреть работы</h2>
     <p class="video-embed-label">Общий шоурил</p>
     <div class="video-embed">
@@ -1487,7 +1915,7 @@
   </section>
 
   <section class="contacts reveal" id="contacts">
-    <p class="eyebrow amber">07 — Контакты</p>
+    <p class="eyebrow amber">08 — Контакты</p>
     <h2 class="section-title">Связаться</h2>
     <div class="contacts-grid">
       <a class="contact-card" href="tel:+79031899379">
@@ -1893,6 +2321,36 @@
       });
       btn.addEventListener('mouseleave', function () {
         btn.style.transform = '';
+      });
+    });
+  })();
+</script>
+
+<script>
+  // FAQ accordion
+  (function () {
+    'use strict';
+    var faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(function (item) {
+      var question = item.querySelector('.faq-question');
+
+      question.addEventListener('click', function () {
+        var isOpen = item.classList.contains('is-open');
+
+        // Close all other items
+        faqItems.forEach(function (otherItem) {
+          if (otherItem !== item) {
+            otherItem.classList.remove('is-open');
+          }
+        });
+
+        // Toggle current item
+        if (isOpen) {
+          item.classList.remove('is-open');
+        } else {
+          item.classList.add('is-open');
+        }
       });
     });
   })();
