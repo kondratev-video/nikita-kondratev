@@ -296,7 +296,13 @@
     margin: 1.8rem 0;
   }
 
-  .stat-item { text-align: center; }
+  .stat-item {
+    text-align: center;
+    width: 132px; /* equal width for both items so the shorter label ("лет опыта") doesn't
+      let its circle drift off-center from the longer label ("направлений съёмки") — without
+      this, flexbox sizes each item to its own label width, and the visual midpoint between
+      the two circles shifts left of the section's true center */
+  }
 
   .stat-icon {
     width: 60px;
