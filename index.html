@@ -520,6 +520,65 @@
     .process-timeline::before { display: none; }
   }
 
+  /* ---------- Guarantees ---------- */
+
+  .guarantees-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .guarantee-card {
+    padding: 1.8rem;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-m);
+    transition: border-color 0.25s ease;
+  }
+
+  .guarantee-card:hover {
+    border-color: var(--yellow-dim);
+  }
+
+  .guarantee-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 1.2rem;
+    border-radius: 12px;
+    background: var(--yellow-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--yellow);
+  }
+
+  .guarantee-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .guarantee-title {
+    margin: 0 0 0.5rem;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+
+  .guarantee-desc {
+    margin: 0;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--text-dim);
+  }
+
+  @media (max-width: 640px) {
+    .guarantees-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
   /* ---------- Clients (credits strip) ---------- */
 
   .clients-strip {
@@ -1637,6 +1696,41 @@
     </div>
   </section>
 
+  <section class="guarantees reveal">
+    <p class="eyebrow">03b — Гарантии</p>
+    <h2 class="section-title">Что гарантирую</h2>
+    <div class="guarantees-grid">
+      <div class="guarantee-card">
+        <div class="guarantee-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3h8a2 2 0 0 1 2 2v14l-3-2-2 2-2-2-2 2-3-2V5a2 2 0 0 1 2-2Z"/><path d="M9 8h6M9 12h4"/></svg>
+        </div>
+        <p class="guarantee-title">Договор с фиксированной ценой</p>
+        <p class="guarantee-desc">Стоимость обсуждается заранее и не меняется в процессе работы</p>
+      </div>
+      <div class="guarantee-card">
+        <div class="guarantee-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <p class="guarantee-title">Сдача в срок</p>
+        <p class="guarantee-desc">Фиксируем дедлайн в договоре — если не уложусь, компенсирую задержку</p>
+      </div>
+      <div class="guarantee-card">
+        <div class="guarantee-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>
+        </div>
+        <p class="guarantee-title">Исходники на диске</p>
+        <p class="guarantee-desc">После сдачи проекта передаю все материалы — исходники, raw-файлы, проект монтажа</p>
+      </div>
+      <div class="guarantee-card">
+        <div class="guarantee-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        </div>
+        <p class="guarantee-title">Правки включены</p>
+        <p class="guarantee-desc">В стоимость входит один раунд правок — вношу корректировки без доплаты</p>
+      </div>
+    </div>
+  </section>
+
   <section class="clients reveal" id="clients">
     <p class="eyebrow amber">04 — Клиенты</p>
     <h2 class="section-title">Клиенты — ЦСКА, Сбербанк, Роснефть</h2>
@@ -2225,6 +2319,10 @@
       <a class="contact-card" href="https://t.me/nikiosa" target="_blank" rel="noopener noreferrer">
         <span class="contact-label">Telegram</span>
         <span class="contact-value">@nikiosa</span>
+      </a>
+      <a class="contact-card" href="https://wa.me/79031899379" target="_blank" rel="noopener noreferrer">
+        <span class="contact-label">WhatsApp</span>
+        <span class="contact-value">8 (903) 189-93-79</span>
       </a>
       <a class="contact-card" href="https://instagram.com/nikiosa" target="_blank" rel="noopener noreferrer">
         <span class="contact-label">Instagram</span>
