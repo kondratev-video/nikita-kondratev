@@ -1444,6 +1444,33 @@
     .fade-in { animation: none; }
   }
 
+  /* ---------- Background Video ---------- */
+
+  .bg-video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    opacity: 0.15;
+    filter: grayscale(0.3);
+  }
+
   /* ---------- Mobile ---------- */
 
   @media (max-width: 640px) {
@@ -1515,6 +1542,12 @@
 </script>
 </head>
 <body>
+
+<div class="bg-video-container">
+  <video class="bg-video" autoplay muted playsinline id="bgVideo">
+    <source src="bg-video1.mp4" type="video/mp4">
+  </video>
+</div>
 
 <nav class="topnav" id="topnav">
   <div class="topnav-inner">
@@ -2243,6 +2276,9 @@
       <button class="filter-chip" type="button" data-filter="Instagram">Instagram</button>
       <button class="filter-chip" type="button" data-filter="Концерты">Концерты</button>
       <button class="filter-chip" type="button" data-filter="Интервью">Интервью</button>
+      <button class="filter-chip" type="button" data-filter="YouTube">YouTube</button>
+      <button class="filter-chip" type="button" data-filter="Репортажная съёмка">Репортажная съёмка</button>
+      <button class="filter-chip" type="button" data-filter="Стройка">Стройка</button>
     </div>
 
     <div class="video-grid">
@@ -2289,6 +2325,21 @@
       <a class="video-card" href="https://drive.google.com/drive/folders/1RnhyEXTln939flbCuwTVt5-DfGXdnAI5" target="_blank" rel="noopener noreferrer" data-title="Интервью" data-desc="Съёмка интервью и репортажных бесед.">
         <span class="video-card-count">6 роликов</span>
         <p class="video-card-label">Интервью</p>
+        <p class="video-card-hint">смотреть подборку →</p>
+      </a>
+      <a class="video-card" href="https://drive.google.com/drive/folders/1JS1J9eZQLdnFLvRQgEyZ8wKtiw7tgc8G" target="_blank" rel="noopener noreferrer" data-title="YouTube" data-desc="Контент для YouTube-каналов.">
+        <span class="video-card-count">8 роликов</span>
+        <p class="video-card-label">YouTube</p>
+        <p class="video-card-hint">смотреть подборку →</p>
+      </a>
+      <a class="video-card" href="https://drive.google.com/drive/folders/15oTYFtjFy_cuewIhHitbqoO_uke75uiM" target="_blank" rel="noopener noreferrer" data-title="Репортажная съёмка" data-desc="Репортажи и документальная съёмка.">
+        <span class="video-card-count">5 роликов</span>
+        <p class="video-card-label">Репортажная съёмка</p>
+        <p class="video-card-hint">смотреть подборку →</p>
+      </a>
+      <a class="video-card" href="https://drive.google.com/drive/folders/18TIVefcjtg5MPhORme6LFIdwp4xDviSV" target="_blank" rel="noopener noreferrer" data-title="Стройка" data-desc="Съёмка строительных объектов и процессов.">
+        <span class="video-card-count">4 ролика</span>
+        <p class="video-card-label">Стройка</p>
         <p class="video-card-hint">смотреть подборку →</p>
       </a>
     </div>
@@ -2745,6 +2796,31 @@
         }
       });
     });
+  })();
+
+  // Background video rotation
+  (function () {
+    var video = document.getElementById('bgVideo');
+    var videos = ['bg-video1.mp4', 'bg-video2.mp4', 'bg-video3.mp4'];
+    var currentIndex = 0;
+
+    function switchVideo() {
+      currentIndex = (currentIndex + 1) % videos.length;
+      video.style.opacity = '0';
+
+      setTimeout(function() {
+        video.src = videos[currentIndex];
+        video.load();
+        video.play().then(function() {
+          video.style.opacity = '0.15';
+        });
+      }, 500);
+    }
+
+    video.addEventListener('ended', switchVideo);
+
+    // Ensure smooth transition
+    video.style.transition = 'opacity 0.5s ease';
   })();
 </script>
 
